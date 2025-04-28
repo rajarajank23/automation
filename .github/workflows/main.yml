@@ -1,15 +1,12 @@
-name: Terraform CI/CD
+name: CI
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  terraform:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +27,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-
-     : Terraform Plan
+      - name: Terraform Plan
         run: terraform plan
 
       - name: Terraform Apply
